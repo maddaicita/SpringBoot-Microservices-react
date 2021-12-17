@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/microservice-user-management/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-discovery-server/pom.xml" />
       </list>
     </option>
   </component>
