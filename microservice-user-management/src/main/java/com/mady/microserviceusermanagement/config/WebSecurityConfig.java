@@ -1,5 +1,4 @@
 package com.mady.microserviceusermanagement.config;
-
 import com.mady.microserviceusermanagement.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

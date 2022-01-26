@@ -1,16 +1,17 @@
 package com.mady.microserviceusermanagement.controller;
-
 import com.mady.microserviceusermanagement.model.Role;
 import com.mady.microserviceusermanagement.model.User;
 import com.mady.microserviceusermanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.core.env.Environment;
 import java.security.Principal;
 import java.util.List;
 
@@ -20,13 +21,37 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-       @PostMapping("/service/registration")
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    @Autowired
+    private Environment env;
+
+    @Value("${spring.application.name}")
+    private String serviceId;
+
+    @GetMapping("/service/port")
+    public String getPort(){
+        return "Service port number : " + env.getProperty("local.server.port");
+    }
+
+    @GetMapping("/service/instances")
+    public ResponseEntity<?> getInstances(){
+        return new ResponseEntity<>(discoveryClient.getInstances(serviceId), HttpStatus.OK);
+    }
+
+    @GetMapping("/service/services")
+    public ResponseEntity<?> getServices(){
+        return new ResponseEntity<>(discoveryClient.getServices(), HttpStatus.OK);
+    }
+
+    @PostMapping("/service/registration")
     public ResponseEntity<?> saveUser(@RequestBody User user){
         if(userService.findByUsername(user.getUsername()) != null){
             //Status Code: 409
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
-        //Default role  will be user
+        //Default role = user
         user.setRole(Role.USER);
         return new ResponseEntity<>(userService.save(user), HttpStatus.CREATED);
     }
@@ -49,6 +74,6 @@ public class UserController {
 
     @GetMapping("/service/test")
     public ResponseEntity<?> test(){
-        return ResponseEntity.ok("It's working...");
+        return ResponseEntity.ok("It is working...");
     }
 }
