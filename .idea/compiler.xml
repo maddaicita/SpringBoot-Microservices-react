@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="microservice-course-management" />
         <module name="microservice-user-management" />
+        <module name="zuul-gateway-service" />
+        <module name="microservice-course-management" />
         <module name="eureka-discovery-server" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="eureka-discovery-server" target="11" />
       <module name="microservice-course-management" target="11" />
       <module name="microservice-user-management" target="11" />
+      <module name="zuul-gateway-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -23,6 +25,7 @@
       <module name="eureka-discovery-server" options="-parameters" />
       <module name="microservice-course-management" options="-parameters" />
       <module name="microservice-user-management" options="-parameters" />
+      <module name="zuul-gateway-service" options="-parameters" />
     </option>
   </component>
 </project>

@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/eureka-discovery-server/eureka-discovery-server.iml" filepath="$PROJECT_DIR$/eureka-discovery-server/eureka-discovery-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-course-management/microservice-course-management.iml" filepath="$PROJECT_DIR$/microservice-course-management/microservice-course-management.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-user-management/microservice-user-management.iml" filepath="$PROJECT_DIR$/microservice-user-management/microservice-user-management.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul-gateway-service/zuul-gateway-service.iml" filepath="$PROJECT_DIR$/zuul-gateway-service/zuul-gateway-service.iml" />
     </modules>
   </component>
 </project>
