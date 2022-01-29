@@ -1,4 +1,4 @@
-package com.mady.zuulgatewayservice.config;
+package com.mady.zuulgatewayservice;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import org.springframework.beans.BeansException;

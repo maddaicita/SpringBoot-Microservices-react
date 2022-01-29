@@ -16,6 +16,7 @@ public class ZuulGatewayServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ZuulGatewayServiceApplication.class, args);
 	}
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {

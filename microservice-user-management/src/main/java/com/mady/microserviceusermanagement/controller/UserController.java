@@ -30,6 +30,7 @@ public class UserController {
     @Value("${spring.application.name}")
     private String serviceId;
 
+    //---------------------------------------------------------------------------------------------------------------
     @GetMapping("/service/port")
     public String getPort(){
         return "Service port number : " + env.getProperty("local.server.port");
@@ -44,6 +45,12 @@ public class UserController {
     public ResponseEntity<?> getServices(){
         return new ResponseEntity<>(discoveryClient.getServices(), HttpStatus.OK);
     }
+    @GetMapping("/service/test")
+    public ResponseEntity<?> test(){
+        return ResponseEntity.ok("It is working...");
+    }
+
+    //---------------------------------------------------------------------------------------------------------------
 
     @PostMapping("/service/registration")
     public ResponseEntity<?> saveUser(@RequestBody User user){
@@ -72,8 +79,5 @@ public class UserController {
         return ResponseEntity.ok(userService.findUsers(idList));
     }
 
-    @GetMapping("/service/test")
-    public ResponseEntity<?> test(){
-        return ResponseEntity.ok("It is working...");
-    }
+
 }
